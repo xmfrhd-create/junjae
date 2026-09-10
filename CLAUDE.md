@@ -6,4 +6,5 @@
 - 콘텐츠 원본: 노션 "Who are you?" 페이지(https://self-introduction426.notion.site/Who-are-you-27945bcb1fd8800eafc4dac53b461e9d) — 작업물(출간 도서 3권 + 집필 중인 책)과 스토리(18살 자퇴, 공황장애 극복 경험)의 단일 출처. 내용이 바뀌면 이 노션을 다시 확인해서 갱신.
 - **정적 사이트, 빌드 단계 없음.** `index.html` 하나에 구조/스타일/스크립트 전부 포함. 프레임워크 도입 금지 (규모가 커지기 전까지).
 - **한국어/영어 2개 언어 지원.** `index.html` 안에 `#site-ko`/`#site-en` 두 트리를 통째로 넣고 JS로 하나만 보여주는 방식(별도 프레임워크 없이). 최초 접속 시 브라우저 언어 자동감지(`ko`→한국어, 그 외→영어), 이후엔 `localStorage('locale')`로 기억. 오른쪽 상단 지구본 버튼으로 언제든 수동 전환 가능. 새 섹션을 추가할 땐 두 언어 트리 모두에 반영할 것(챗봇 프로젝트의 i18n 동시 갱신 원칙과 동일).
-- Vercel에 정적 사이트로 직접 배포. **깃허브 연동 완료** — `git push`하면 별도 `vercel --prod` 없이도 향후 레포·배포 흐름을 그대로 이어갈 수 있음(원격: `xmfrhd-create/jasoseo-test`).
+- Vercel에 정적 사이트로 직접 배포. **깃허브 연동 완료** — `git push`하면 별도 `vercel --prod` 없이도 향후 레포·배포 흐름을 그대로 이어갈 수 있음(원격: `xmfrhd-create/jasoseo-test`, Vercel 프로젝트명은 `junjae`로 변경됨).
+- **정식 주소는 `junjae.vercel.app`.** 처음엔 `vercel alias set`으로 특정 배포 하나에만 수동으로 연결했었는데, 이 방식은 이후 새 배포가 올라와도 자동으로 안 따라가는 "고정 별명"이라 새 글 반영이 안 되는 사고가 있었다. **반드시 `vercel domains add junjae.vercel.app junjae`로 프로젝트에 정식 도메인으로 등록해야** 매 배포마다 자동으로 최신 내용을 따라간다(2026-09-11에 이 방식으로 재설정 완료). 앞으로 주소를 바꾸거나 새로 붙일 일이 생기면 `alias set`이 아니라 `domains add`를 쓸 것.
