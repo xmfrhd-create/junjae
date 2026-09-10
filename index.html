@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OOO — Marketer Portfolio</title>
-<meta name="description" content="데이터로 이야기를 만드는 마케터 OOO의 포트폴리오">
+<title>Jun — Author &amp; Coach</title>
+<meta name="description" content="작가이자 코치, 제준(Jun Jae)의 소개 페이지 / Author &amp; coach Jun Jae's introduction page">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
@@ -49,9 +49,50 @@
   }
   .logo{font-weight:700;font-size:18px;letter-spacing:-.02em;}
   .logo span{color:var(--accent);}
+  .nav-right{display:flex;align-items:center;gap:22px;}
   .nav-links{display:flex;gap:28px;font-size:14px;color:var(--text-dim);}
   .nav-links a{transition:color .2s ease;}
   .nav-links a:hover{color:var(--text);}
+
+  /* ---------- language switcher ---------- */
+  .lang-switch{position:relative;}
+  .lang-btn{
+    display:flex;align-items:center;gap:7px;
+    padding:8px 14px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    background:transparent;
+    color:var(--text-dim);
+    font-size:13px;font-weight:600;
+    cursor:pointer;
+    font-family:inherit;
+    transition:border-color .2s ease, color .2s ease, background .2s ease;
+  }
+  .lang-btn:hover{border-color:var(--text-dim);color:var(--text);}
+  .lang-btn .caret{font-size:9px;opacity:.6;}
+  .lang-menu{
+    position:absolute;top:calc(100% + 8px);right:0;
+    min-width:132px;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 16px 40px -12px rgba(0,0,0,.6);
+    display:none;
+  }
+  .lang-menu.open{display:block;}
+  .lang-menu button{
+    display:flex;align-items:center;gap:8px;
+    width:100%;
+    padding:11px 14px;
+    background:transparent;border:none;
+    color:var(--text);
+    font-size:13.5px;font-family:inherit;
+    cursor:pointer;text-align:left;
+    transition:background .15s ease;
+  }
+  .lang-menu button:hover{background:rgba(255,255,255,.05);}
+  .lang-menu button.active{color:var(--accent);font-weight:700;}
 
   /* ---------- hero ---------- */
   header.hero{
@@ -90,10 +131,10 @@
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
   h1.hero-title{
     position:relative;z-index:1;
-    font-size:clamp(38px,7vw,84px);
+    font-size:clamp(36px,6.6vw,78px);
     font-weight:800;
     letter-spacing:-.03em;
-    line-height:1.08;
+    line-height:1.1;
   }
   h1.hero-title .line{
     display:block;
@@ -114,13 +155,12 @@
   .hero-sub{
     position:relative;z-index:1;
     margin-top:28px;
-    max-width:480px;
+    max-width:500px;
     font-size:17px;
     color:var(--text-dim);
     opacity:0;transform:translateY(14px);
     animation:rise .7s .55s ease forwards;
   }
-  .hero-sub br{content:'';display:block;margin-top:6px;}
   .hero-cta{
     position:relative;z-index:1;
     margin-top:44px;
@@ -162,7 +202,7 @@
     margin-bottom:16px;
   }
   h2.section-title{
-    font-size:clamp(28px,4vw,44px);
+    font-size:clamp(26px,3.6vw,40px);
     font-weight:800;
     letter-spacing:-.02em;
     max-width:640px;
@@ -173,7 +213,6 @@
     font-size:16px;
     max-width:520px;
   }
-  .section-desc br{content:'';display:block;margin-top:4px;}
 
   /* ---------- about ---------- */
   .about-grid{
@@ -183,7 +222,7 @@
     gap:60px;
   }
   .about-copy p{
-    font-size:18px;
+    font-size:17px;
     color:var(--text-dim);
     margin-bottom:18px;
   }
@@ -203,14 +242,47 @@
     border-radius:20px;
     padding:32px;
     background:linear-gradient(180deg,var(--bg-soft),transparent);
+    align-self:start;
   }
   .stat-box .num{
-    font-size:44px;font-weight:800;letter-spacing:-.02em;
+    font-size:40px;font-weight:800;letter-spacing:-.02em;
     background:linear-gradient(90deg,var(--accent),var(--accent-2));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .stat-box .cap{color:var(--text-dim);font-size:14px;margin-top:6px;margin-bottom:24px;}
   .stat-box .cap:last-child{margin-bottom:0;}
+
+  /* ---------- story ---------- */
+  .story-body{margin-top:56px;max-width:680px;}
+  .story-body p{
+    font-size:17px;line-height:1.75;
+    color:var(--text-dim);
+    margin-bottom:20px;
+  }
+  .story-body strong{color:var(--text);font-weight:700;}
+  .story-divider{
+    margin:48px 0 32px;
+    padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .story-sublabel{
+    font-size:13px;font-weight:700;color:var(--accent-2);
+    letter-spacing:.04em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .press-row{
+    margin-top:36px;
+    display:flex;flex-wrap:wrap;gap:12px;
+  }
+  .press-chip{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    font-size:13px;color:var(--text-dim);
+    transition:border-color .2s ease, color .2s ease, transform .2s ease;
+  }
+  .press-chip:hover{border-color:var(--accent);color:var(--text);transform:translateY(-2px);}
 
   /* ---------- work ---------- */
   .work-grid{
@@ -244,20 +316,13 @@
     letter-spacing:.04em;
     margin-bottom:18px;
   }
-  .card h3{font-size:21px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em;}
+  .card h3{font-size:20px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em;}
   .card p{color:var(--text-dim);font-size:14.5px;margin-bottom:20px;}
   .card .metric{
     display:flex;align-items:baseline;gap:8px;
     font-size:13px;color:var(--text-dim);
     border-top:1px solid var(--line);
     padding-top:16px;
-  }
-  .card .metric b{font-size:20px;color:var(--text);font-weight:800;}
-  .work-note{
-    margin-top:28px;
-    font-size:13px;
-    color:var(--text-dim);
-    opacity:.7;
   }
 
   /* ---------- contact ---------- */
@@ -316,12 +381,25 @@
 </head>
 <body>
 
-<nav id="nav">
-  <div class="logo">O<span>·</span>O</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#contact">Contact</a>
+<!-- ========================= KOREAN ========================= -->
+<div id="site-ko" class="site">
+
+<nav class="nav-ko">
+  <div class="logo">제준</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#about-ko">About</a>
+      <a href="#story-ko">Story</a>
+      <a href="#work-ko">Books</a>
+      <a href="#contact-ko">Contact</a>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang-toggle>🌐 한국어 <span class="caret">▾</span></button>
+      <div class="lang-menu">
+        <button data-set-lang="ko" class="active">🇰🇷 한국어</button>
+        <button data-set-lang="en">🇺🇸 English</button>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -329,189 +407,449 @@
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span>Marketer · 25</div>
+    <div class="eyebrow"><span class="dot"></span>Author · Coach</div>
     <h1 class="hero-title">
-      <span class="line"><span>데이터로 이야기를</span></span>
-      <span class="line"><span>만드는</span></span>
-      <span class="line"><span>마케터, OOO입니다</span></span>
+      <span class="line"><span>사람들이 더 충만한</span></span>
+      <span class="line"><span>삶을 살도록</span></span>
+      <span class="line"><span>돕는 글을 씁니다</span></span>
     </h1>
     <p class="hero-sub">
-      숫자 뒤에 숨은 진짜 이유를 찾고,<br>
-      브랜드가 하고 싶은 말을 사람들이 듣고 싶은 말로 바꿉니다.
+      6년째 자기계발과 마음건강에 대해 쓰고 있습니다.<br>
+      지금까지 책 세 권을 펴냈고, 독자들이 그 안의 통찰을<br>
+      실제 삶에 적용하도록 돕는 코치로도 활동하고 있습니다.
     </p>
     <div class="hero-cta">
-      <a href="#work" class="btn btn-primary">작업물 보기 ↓</a>
-      <a href="#contact" class="btn btn-ghost">협업 제안하기</a>
+      <a href="#story-ko" class="btn btn-primary">이야기 읽기 ↓</a>
+      <a href="#work-ko" class="btn btn-ghost">책 보러가기</a>
     </div>
   </div>
 </header>
 
-<section id="about">
+<section id="about-ko">
   <div class="wrap">
     <div class="reveal">
       <div class="section-label">About</div>
-      <h2 class="section-title">기획부터 성과 분석까지,<br>한 사이클을 직접 굴려봤습니다.</h2>
+      <h2 class="section-title">행복은 저절로 오지 않습니다</h2>
       <p class="section-desc">
-        클라이언트와 채용 담당자가 궁금한 건 하나입니다.<br>
-        "이 사람과 일하면 어떤 결과가 나오는가."<br>
-        아래는 그 질문에 대한 답입니다.
+        의도와 올바른 도구, 그리고 함께해 줄 환경이 필요합니다.<br>
+        그 자리를 글과 코칭으로 채우고 있습니다.
       </p>
     </div>
 
     <div class="about-grid">
       <div class="about-copy reveal">
-        <p><strong>25살, 콘텐츠와 데이터를 함께 다루는 마케터입니다.</strong><br>
-        기획 → 실행 → 성과 측정 → 개선, 이 사이클을 캠페인 단위로 직접 반복해왔습니다.</p>
-        <p>감으로 말하지 않습니다.<br>
-        모든 제안에는 근거가 되는 숫자가 함께 갑니다.</p>
-        <p>함께 일할 팀과 클라이언트에게, <strong>말이 아니라 결과로 증명</strong>하는 것이 원칙입니다.</p>
+        <p><strong>6년째 개인성장과 마음건강에 대한 글을 쓰고 있습니다.</strong><br>
+        지금까지 책 세 권을 펴냈고, 독자들이 그 안의 통찰을 실제 일상에 적용하도록 돕는 코치로도 활동하고 있습니다.</p>
+        <p>우리에게 주어진 삶은 단 한 번입니다.<br>
+        모두가 기쁨과 의미로 그 삶을 살아갈 자격이 있다고 믿습니다.</p>
+        <p>글도 코칭도, 결국 사람을 <strong>더 의도적이고 충만한 삶</strong>으로 데려가는 것이 목적입니다.</p>
         <div class="tags">
-          <span class="tag">콘텐츠 마케팅</span>
-          <span class="tag">SNS 운영</span>
-          <span class="tag">퍼포먼스 마케팅</span>
-          <span class="tag">데이터 분석</span>
-          <span class="tag">브랜드 기획</span>
+          <span class="tag">자기계발</span>
+          <span class="tag">마음건강 코칭</span>
+          <span class="tag">집필</span>
+          <span class="tag">공황장애 극복</span>
+          <span class="tag">글로벌 확장</span>
         </div>
       </div>
       <div class="stat-box reveal">
-        <div class="num">40%</div>
-        <div class="cap">3개월 SNS 팔로워 성장률</div>
-        <div class="num">120%</div>
-        <div class="cap">런칭 캠페인 목표 대비 전환율</div>
-        <div class="num">30%</div>
-        <div class="cap">A/B 테스트로 절감한 광고 CPA</div>
+        <div class="num">3</div>
+        <div class="cap">지금까지 출간한 책</div>
+        <div class="num">6년</div>
+        <div class="cap">집필·코칭 활동 기간</div>
+        <div class="num">24개국</div>
+        <div class="cap">직접 여행하며 만난 이야기</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<section id="story-ko">
   <div class="wrap">
     <div class="reveal">
-      <div class="section-label">Work</div>
-      <h2 class="section-title">대표적으로 진행한 프로젝트</h2>
-      <p class="section-desc">기획 의도와 실제 성과를 함께 담았습니다.</p>
+      <div class="section-label">Story</div>
+      <h2 class="section-title">18살, 학교를 나와<br>작가가 되기로 했습니다</h2>
+      <p class="section-desc">지금의 글과 코칭으로 이어진, 제 이야기입니다.</p>
+    </div>
+
+    <div class="story-body reveal">
+      <p>열일곱 살이 되기 전까지는 뚜렷한 목표도, 방향도 없었습니다. 그저 하루하루를 흘려보내고 있었습니다.</p>
+      <p>모든 게 달라진 건 덴마크식 교육을 따르는 1년제 대안학교에 들어가면서부터입니다. 처음엔 낯설었지만, 그곳에서 스스로 생각하고 제 삶의 주인이 되는 법을 배웠습니다.</p>
+      <p>1년 뒤 돌아간 일반 고등학교는 오직 시험만을 위한 곳이었습니다. 진짜 질문도, 진짜 대화도 없었습니다. 더 깊이 나아가고 싶었던 저는 <strong>2018년 5월, 학교를 나와 작가의 길을 택했습니다.</strong></p>
+      <p>운 좋게 첫 집필 수업에서 좋은 멘토를 만났고, 그 도움으로 지금까지 책 세 권을 세상에 내놓았습니다. 한 독자분이 해주신 "제 삶에 나타나 주셔서 감사해요"라는 말은, 제가 왜 계속 글을 쓰는지를 알려준 순간이었습니다.</p>
+
+      <div class="story-divider">
+        <div class="story-sublabel">그리고, 다음 책을 쓰는 이유</div>
+        <p>학교를 나오기로 결심했을 때 찾아온 압박감은 생각보다 컸습니다. 그 시기에 공황장애를 겪었고, 한때는 모든 걸 놓아버리고 싶을 만큼 힘든 시간도 있었습니다. 그 뒤 3년, 약 없이 스스로를 돌보며 회복했습니다.</p>
+        <p>그 과정에서 공황장애를 제대로 이해하지 못해 필요 이상으로 힘들어하는 사람이 많다는 걸 알게 됐습니다. 그래서 지금은 실질적인 도구와 방법을 담은 다음 책을 준비하고 있습니다.</p>
+        <p>지금까지는 한국 안에서 활동했지만, 이제 <strong>영어권을 시작으로 더 많은 사람들에게 닿으려</strong> 합니다.</p>
+      </div>
+
+      <div class="press-row">
+        <a href="https://youtu.be/95X2fp1aaLg" target="_blank" rel="noopener" class="press-chip">▶ 자퇴식 발표 영상 보기</a>
+        <a href="https://search.naver.com/search.naver?query=%EC%A0%9C%EC%A4%80%20%EC%9E%91%ED%92%88%ED%99%9C%EB%8F%99" target="_blank" rel="noopener" class="press-chip">🔍 제준 작품활동 검색해보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work-ko">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">Books</div>
+      <h2 class="section-title">지금까지의 기록</h2>
+      <p class="section-desc">세 권의 책과, 지금 쓰고 있는 다음 이야기입니다.</p>
     </div>
 
     <div class="work-grid">
       <div class="card reveal">
-        <span class="card-tag">SNS 운영</span>
-        <h3>브랜드 인스타그램 채널 운영</h3>
-        <p>콘텐츠 기획부터 발행, 데이터 분석까지 전 과정을 담당. 반응이 좋은 포맷을 데이터로 찾아내 주간 단위로 콘텐츠 전략을 조정했습니다.</p>
-        <div class="metric">3개월 팔로워 <b>+40%</b></div>
+        <span class="card-tag">📕 공동 저서 · 2019</span>
+        <h3>남들이 뭐라 해도, 나는 내 삶을 만든다</h3>
+        <p>학교를 나오기로 결심한 뒤 동료 작가들과 함께 쓴 첫 책. 덴마크 교육에서 배운 것들과, 제가 만들고 싶은 세상을 담았습니다.</p>
+        <div class="metric">도전을 마주하는 용기에 대한 이야기</div>
       </div>
       <div class="card reveal">
-        <span class="card-tag">캠페인 기획</span>
-        <h3>신제품 런칭 캠페인</h3>
-        <p>타겟 오디언스 리서치를 기반으로 캠페인 메시지와 채널을 설계. 초기 목표 전환율을 초과 달성했습니다.</p>
-        <div class="metric">목표 대비 전환율 <b>120%</b></div>
+        <span class="card-tag">📘 단독 저서 · 2019</span>
+        <h3>당신의 꿈은 안녕한가요</h3>
+        <p>첫 단독 저서. 독자가 자신의 꿈을 스스로 탐구하도록 돕는 옴니버스 형식의 책입니다.</p>
+        <div class="metric">많은 독자분들이 눈물로, 또 용기로 화답해 주셨습니다</div>
       </div>
       <div class="card reveal">
-        <span class="card-tag">콘텐츠 마케팅</span>
-        <h3>블로그 · 뉴스레터 콘텐츠 전략</h3>
-        <p>검색 유입과 구독자 리텐션을 함께 고려한 콘텐츠 캘린더를 설계하고 운영했습니다.</p>
-        <div class="metric">월간 유입 트래픽 <b>2배</b></div>
+        <span class="card-tag">📗 가족 프로젝트 · 2020</span>
+        <h3>불안정한 유산</h3>
+        <p>아버지와 함께, 8인 가족이 RV로 미국을 40일간 횡단한 여정을 담았습니다. 진짜 행복이 무엇인지에 대한 기록입니다.</p>
+        <div class="metric">코로나 시기, 독자들에게 대리 여행을 선물한 책</div>
       </div>
       <div class="card reveal">
-        <span class="card-tag">퍼포먼스 마케팅</span>
-        <h3>광고 소재 A/B 테스트 최적화</h3>
-        <p>소재별 성과 데이터를 지속적으로 비교·분석해 예산 배분을 개선했습니다.</p>
-        <div class="metric">CPA <b>-30%</b></div>
+        <span class="card-tag">✍️ 집필 중 · 2026</span>
+        <h3>다음 책 (가제)</h3>
+        <p>3년간 약 없이 공황장애를 극복한 경험을 바탕으로, 실질적인 도구를 담은 책을 쓰고 있습니다. 24개국을 여행하며 만난 이야기를 담은 책도 함께 준비 중입니다.</p>
+        <div class="metric">공황장애를 이해하고 극복하도록 돕는 실전 가이드</div>
       </div>
     </div>
-    <p class="work-note">* 위 프로젝트는 포트폴리오 구성 예시입니다. 실제 작업물로 교체 예정입니다.</p>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact-ko">
   <div class="wrap">
     <div class="contact-box reveal">
-      <h2>함께할 준비가 되어 있습니다</h2>
+      <h2>이야기를 나누고 싶다면</h2>
       <p class="section-desc">
-        새로운 프로젝트, 협업 제안은 언제든 환영합니다.<br>
+        책 이야기든, 코칭이든, 새로운 제안이든 좋습니다.<br>
         아래 이메일로 편하게 연락 주세요.
       </p>
       <div class="email-row">
-        <span id="emailText">test@gmail.com</span>
-        <button class="copy-btn" id="copyBtn">복사하기</button>
+        <span class="email-text">xmfrhd@gmail.com</span>
+        <button class="copy-btn" data-copy-btn>복사하기</button>
       </div>
       <div style="margin-top:20px;">
-        <a href="mailto:test@gmail.com" class="btn btn-primary">이메일 보내기</a>
+        <a href="mailto:xmfrhd@gmail.com" class="btn btn-primary">이메일 보내기</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© 2026 OOO. Made with care.</div>
+  <div class="wrap">© 2026 Jun Jae(제준). Made with care.</div>
 </footer>
 
-<script>
-  // nav background on scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+</div>
 
-  // scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+<!-- ========================= ENGLISH ========================= -->
+<div id="site-en" class="site" hidden>
+
+<nav class="nav-en">
+  <div class="logo">Jun Jae</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#about-en">About</a>
+      <a href="#story-en">Story</a>
+      <a href="#work-en">Books</a>
+      <a href="#contact-en">Contact</a>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang-toggle>🌐 English <span class="caret">▾</span></button>
+      <div class="lang-menu">
+        <button data-set-lang="ko">🇰🇷 한국어</button>
+        <button data-set-lang="en" class="active">🇺🇸 English</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Author · Coach</div>
+    <h1 class="hero-title">
+      <span class="line"><span>Helping people live</span></span>
+      <span class="line"><span>more intentional,</span></span>
+      <span class="line"><span>fulfilling lives</span></span>
+    </h1>
+    <p class="hero-sub">
+      I'm Jun. For the past 6 years I've been writing about<br>
+      personal growth and mental health, with 3 books published<br>
+      so far — and I coach readers on applying it all to daily life.
+    </p>
+    <div class="hero-cta">
+      <a href="#story-en" class="btn btn-primary">Read my story ↓</a>
+      <a href="#work-en" class="btn btn-ghost">See my books</a>
+    </div>
+  </div>
+</header>
+
+<section id="about-en">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Happiness doesn't appear on its own</h2>
+      <p class="section-desc">
+        It takes intention, the right tools, and a supportive environment.<br>
+        That's where my writing and coaching come in.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p><strong>For six years now, I've been writing about personal growth and mental health.</strong><br>
+        I've published three books so far, and I work as a coach helping readers apply the insights from my writing to their everyday lives.</p>
+        <p>We only get one life. I believe everyone deserves to live it with joy and meaning.</p>
+        <p>Both my writing and coaching exist for one purpose — helping people move toward a <strong>more intentional, fulfilling life.</strong></p>
+        <div class="tags">
+          <span class="tag">Personal growth</span>
+          <span class="tag">Mental health coaching</span>
+          <span class="tag">Writing</span>
+          <span class="tag">Panic disorder recovery</span>
+          <span class="tag">Going global</span>
+        </div>
+      </div>
+      <div class="stat-box reveal">
+        <div class="num">3</div>
+        <div class="cap">Books published</div>
+        <div class="num">6 yrs</div>
+        <div class="cap">Writing &amp; coaching</div>
+        <div class="num">24</div>
+        <div class="cap">Countries traveled</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="story-en">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">Story</div>
+      <h2 class="section-title">At 18, I left school<br>to become a writer</h2>
+      <p class="section-desc">The story behind the writing and coaching I do today.</p>
+    </div>
+
+    <div class="story-body reveal">
+      <p>Before I turned 17, I had no real purpose or direction — just drifting through the days.</p>
+      <p>Everything changed when I joined a one-year alternative school inspired by Danish education. It was unfamiliar at first, but that's where I learned to think for myself and take ownership of my own life.</p>
+      <p>Going back to a regular high school afterward felt suffocating — everything revolved around test scores, with no room for real questions or real conversations. I wanted to go deeper, so <strong>in May 2018, I left school to become an author.</strong></p>
+      <p>I was fortunate to meet a mentor in my very first writing class, and with his support I've since published three books. One reader once told me, "thank you for showing up in my life" — that's the moment I understood why I keep writing.</p>
+
+      <div class="story-divider">
+        <div class="story-sublabel">And why I'm writing my next book</div>
+        <p>The pressure of leaving school hit harder than I expected. I went through panic disorder during that time, including moments hard enough that I considered giving up on everything — and over the following three years, I recovered without medication, through steady effort and self-care.</p>
+        <p>Along the way I realized how many people struggle needlessly with panic disorder simply because they don't understand it. So my next book is built around practical tools and clear guidance for exactly that.</p>
+        <p>Until now, all of my work has lived in Korea — I'm starting to bring it to a <strong>global audience, beginning with English-speaking readers.</strong></p>
+      </div>
+
+      <div class="press-row">
+        <a href="https://youtu.be/95X2fp1aaLg" target="_blank" rel="noopener" class="press-chip">▶ Watch my farewell speech</a>
+        <a href="https://search.naver.com/search.naver?query=%EC%A0%9C%EC%A4%80%20%EC%9E%91%ED%92%88%ED%99%9C%EB%8F%99" target="_blank" rel="noopener" class="press-chip">🔍 Search my work (Korean press)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work-en">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-label">Books</div>
+      <h2 class="section-title">What I've written so far</h2>
+      <p class="section-desc">Three published books, and the next one taking shape.</p>
+    </div>
+
+    <div class="work-grid">
+      <div class="card reveal">
+        <span class="card-tag">📕 Co-authored · 2019</span>
+        <h3>No Matter What They Say, I Create My Own Life</h3>
+        <p>My first book, co-written with fellow writers right after I decided to leave high school. It shares what I learned from Danish education and the world I hope to help build.</p>
+        <div class="metric">A book about embracing challenge with courage</div>
+      </div>
+      <div class="card reveal">
+        <span class="card-tag">📘 Solo work · 2019</span>
+        <h3>How Are Your Dreams Doing?</h3>
+        <p>My first solo book, written to help readers explore their own dreams — how to find what you truly love, manage hard emotions, and live joyfully.</p>
+        <div class="metric">Readers wrote back in tears — and in courage</div>
+      </div>
+      <div class="card reveal">
+        <span class="card-tag">📗 Family project · 2020</span>
+        <h3>The Precarious Inheritance</h3>
+        <p>Built around a 40-day RV trip across the U.S. with my family of eight. A reflection on what real happiness — and a real inheritance — actually means.</p>
+        <div class="metric">Written during the pandemic as a vicarious journey for readers</div>
+      </div>
+      <div class="card reveal">
+        <span class="card-tag">✍️ In progress · 2026</span>
+        <h3>What's Next (working title)</h3>
+        <p>Built on 3 years of recovering from panic disorder without medication — practical tools for people going through it. Also developing a second book drawn from a year spent traveling across 24 countries.</p>
+        <div class="metric">A practical guide to understanding and overcoming panic disorder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact-en">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <h2>Let's start a conversation</h2>
+      <p class="section-desc">
+        A book, coaching, or a new idea — I'd love to hear from you.<br>
+        Reach out anytime at the email below.
+      </p>
+      <div class="email-row">
+        <span class="email-text">xmfrhd@gmail.com</span>
+        <button class="copy-btn" data-copy-btn>Copy</button>
+      </div>
+      <div style="margin-top:20px;">
+        <a href="mailto:xmfrhd@gmail.com" class="btn btn-primary">Send an email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Jun Jae. Made with care.</div>
+</footer>
+
+</div>
+
+<script>
+  // ---------- language: detect, persist, switch ----------
+  var siteKo = document.getElementById('site-ko');
+  var siteEn = document.getElementById('site-en');
+
+  function detectLocale(){
+    var stored = localStorage.getItem('locale');
+    if(stored === 'ko' || stored === 'en') return stored;
+    var browser = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    return browser.indexOf('ko') === 0 ? 'ko' : 'en';
+  }
+
+  function applyLocale(locale){
+    var isKo = locale === 'ko';
+    siteKo.hidden = !isKo;
+    siteEn.hidden = isKo;
+    document.documentElement.lang = locale;
+    document.querySelectorAll('[data-lang-toggle]').forEach(function(btn){
+      btn.textContent = '';
+      var span = document.createElement('span');
+      span.textContent = isKo ? '🌐 한국어 ' : '🌐 English ';
+      var caret = document.createElement('span');
+      caret.className = 'caret';
+      caret.textContent = '▾';
+      btn.appendChild(span);
+      btn.appendChild(caret);
+    });
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === locale);
+    });
+  }
+
+  function setLocale(locale){
+    localStorage.setItem('locale', locale);
+    applyLocale(locale);
+    closeAllMenus();
+  }
+
+  function closeAllMenus(){
+    document.querySelectorAll('.lang-menu.open').forEach(function(m){ m.classList.remove('open'); });
+  }
+
+  applyLocale(detectLocale());
+
+  document.querySelectorAll('[data-lang-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var menu = btn.parentElement.querySelector('.lang-menu');
+      var wasOpen = menu.classList.contains('open');
+      closeAllMenus();
+      if(!wasOpen) menu.classList.add('open');
+    });
+  });
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLocale(btn.getAttribute('data-set-lang')); });
+  });
+  document.addEventListener('click', closeAllMenus);
+
+  // ---------- nav background on scroll ----------
+  document.querySelectorAll('nav').forEach(function(nav){
+    window.addEventListener('scroll', function(){
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  });
+
+  // ---------- scroll reveal ----------
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
       if (entry.isIntersecting) {
         entry.target.classList.add('in');
         io.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
-  revealEls.forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
-  // card cursor glow
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
+  // ---------- card cursor glow ----------
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var rect = card.getBoundingClientRect();
       card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
       card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
     });
   });
 
-  // copy email (clipboard API + legacy fallback, with a hard timeout so the
-  // button never gets stuck if the clipboard permission silently hangs)
-  const copyBtn = document.getElementById('copyBtn');
-  copyBtn.addEventListener('click', () => {
-    const text = 'test@gmail.com';
-    let done = false;
-    const finish = (ok) => {
-      if (done) return;
-      done = true;
-      copyBtn.textContent = ok ? '복사됨 ✓' : '복사 실패';
-      copyBtn.classList.toggle('copied', ok);
-      setTimeout(() => {
-        copyBtn.textContent = '복사하기';
-        copyBtn.classList.remove('copied');
-      }, 1800);
-    };
-    const fallback = () => {
-      try {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        const ok = document.execCommand('copy');
-        document.body.removeChild(ta);
-        finish(ok);
-      } catch (e) {
-        finish(false);
+  // ---------- copy email (clipboard API + legacy fallback) ----------
+  document.querySelectorAll('[data-copy-btn]').forEach(function(copyBtn){
+    var defaultLabel = copyBtn.textContent;
+    copyBtn.addEventListener('click', function(){
+      var text = 'xmfrhd@gmail.com';
+      var done = false;
+      var finish = function(ok){
+        if (done) return;
+        done = true;
+        copyBtn.textContent = ok ? (defaultLabel.indexOf('사') > -1 ? '복사됨 ✓' : 'Copied ✓') : (defaultLabel.indexOf('사') > -1 ? '복사 실패' : 'Failed');
+        copyBtn.classList.toggle('copied', ok);
+        setTimeout(function(){
+          copyBtn.textContent = defaultLabel;
+          copyBtn.classList.remove('copied');
+        }, 1800);
+      };
+      var fallback = function(){
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          var ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          finish(ok);
+        } catch (e) {
+          finish(false);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ finish(true); }).catch(fallback);
+        setTimeout(function(){ if (!done) fallback(); }, 800);
+      } else {
+        fallback();
       }
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(() => finish(true)).catch(fallback);
-      setTimeout(() => { if (!done) fallback(); }, 800);
-    } else {
-      fallback();
-    }
+    });
   });
 </script>
 
