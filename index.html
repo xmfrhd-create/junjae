@@ -474,22 +474,43 @@
     });
   });
 
-  // copy email
+  // copy email (clipboard API + legacy fallback, with a hard timeout so the
+  // button never gets stuck if the clipboard permission silently hangs)
   const copyBtn = document.getElementById('copyBtn');
-  copyBtn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText('test@gmail.com');
-      copyBtn.textContent = '복사됨 ✓';
-      copyBtn.classList.add('copied');
+  copyBtn.addEventListener('click', () => {
+    const text = 'test@gmail.com';
+    let done = false;
+    const finish = (ok) => {
+      if (done) return;
+      done = true;
+      copyBtn.textContent = ok ? '복사됨 ✓' : '복사 실패';
+      copyBtn.classList.toggle('copied', ok);
       setTimeout(() => {
         copyBtn.textContent = '복사하기';
         copyBtn.classList.remove('copied');
       }, 1800);
-    } catch (e) {
-      copyBtn.textContent = '복사 실패';
-      setTimeout(() => {
-        copyBtn.textContent = '복사하기';
-      }, 1800);
+    };
+    const fallback = () => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        finish(ok);
+      } catch (e) {
+        finish(false);
+      }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => finish(true)).catch(fallback);
+      setTimeout(() => { if (!done) fallback(); }, 800);
+    } else {
+      fallback();
     }
   });
 </script>
