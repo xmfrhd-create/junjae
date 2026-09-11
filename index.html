@@ -253,7 +253,7 @@
   .stat-box .cap:last-child{margin-bottom:0;}
 
   /* ---------- story ---------- */
-  .story-body{margin-top:56px;max-width:680px;}
+  .story-body{margin:56px auto 0;max-width:680px;}
   .story-body p{
     font-size:17px;line-height:1.75;
     color:var(--text-dim);
@@ -288,17 +288,23 @@
   .work-grid{
     margin-top:60px;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
+    grid-template-columns:1fr;
+    gap:32px;
   }
   .card{
+    display:grid;
+    grid-template-columns:420px 1fr;
     border:1px solid var(--line);
     border-radius:22px;
-    padding:36px;
     background:var(--bg-soft);
     transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s ease, background .3s ease;
     position:relative;
     overflow:hidden;
+  }
+  .card-body{
+    padding:40px 44px;
+    position:relative;
+    z-index:1;
   }
   .card::before{
     content:'';
@@ -409,20 +415,19 @@
 
   /* ---------- book cover ---------- */
   .card-cover{
-    margin:-36px -36px 24px;
-    height:200px;
+    min-height:460px;
     background:linear-gradient(180deg,#f5f2ec,#e9e5db);
     display:flex;align-items:center;justify-content:center;
   }
   .card-cover img{
-    max-height:82%;max-width:78%;
+    max-height:88%;max-width:82%;
     object-fit:contain;
-    filter:drop-shadow(0 18px 26px rgba(0,0,0,.35));
+    filter:drop-shadow(0 24px 40px rgba(0,0,0,.4));
     transition:transform .4s cubic-bezier(.2,.8,.2,1);
   }
   .card:hover .card-cover img{transform:translateY(-4px) scale(1.03);}
   .card-cover.placeholder{background:linear-gradient(180deg,#1a1c1e,#101112);}
-  .card-cover.placeholder span{font-size:52px;}
+  .card-cover.placeholder span{font-size:96px;}
   .book-note{
     margin-top:16px;
     padding-top:16px;
@@ -455,6 +460,9 @@
   @media (max-width:820px){
     .about-grid{grid-template-columns:1fr;gap:40px;}
     .work-grid{grid-template-columns:1fr;}
+    .card{grid-template-columns:1fr;}
+    .card-cover{min-height:280px;}
+    .card-body{padding:32px 28px;}
     section{padding:88px 0;}
     .nav-links{display:none;}
     .contact-box{padding:48px 24px;}
@@ -567,38 +575,46 @@
     <div class="work-grid">
       <div class="card reveal">
         <div class="card-cover"><img src="assets/book-1.jpg" alt="《누가 뭐래도 내 인생은 내가 만든다》 책 표지"></div>
-        <span class="card-tag">📕 공동 저서 · 2019</span>
-        <h3>누가 뭐래도 내 인생은 내가 만든다</h3>
-        <p>학교를 나오기로 결심한 뒤 쓴 첫 책으로, 동료 작가들과 함께 쓴 공동 저서입니다. 덴마크 교육에서 배운 것들, 제가 학교를 떠난 이유, 그리고 제가 만들고 싶은 세상을 담았습니다. 이 책의 핵심 메시지는 도전을 받아들이는 것, 삶을 진지하게 마주하는 것, 그리고 자신만의 길을 따라갈 용기를 갖는 것입니다.</p>
-        <div class="book-photo"><img src="assets/mentor-book.jpg" alt="멘토님과 함께 책을 들고 있는 모습"></div>
-        <div class="metric">"내가 누구인지는 내가 결정해" — 책 표지 문구</div>
+        <div class="card-body">
+          <span class="card-tag">📕 공동 저서 · 2019</span>
+          <h3>누가 뭐래도 내 인생은 내가 만든다</h3>
+          <p>학교를 나오기로 결심한 뒤 쓴 첫 책으로, 동료 작가들과 함께 쓴 공동 저서입니다. 덴마크 교육에서 배운 것들, 제가 학교를 떠난 이유, 그리고 제가 만들고 싶은 세상을 담았습니다. 이 책의 핵심 메시지는 도전을 받아들이는 것, 삶을 진지하게 마주하는 것, 그리고 자신만의 길을 따라갈 용기를 갖는 것입니다.</p>
+          <div class="book-photo"><img src="assets/mentor-book.jpg" alt="멘토님과 함께 책을 들고 있는 모습"></div>
+          <div class="metric">"내가 누구인지는 내가 결정해" — 책 표지 문구</div>
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-cover"><img src="assets/book-2.jpg" alt="《당신의 꿈은 안녕하신가요?》 책 표지"></div>
-        <span class="card-tag">📘 개인 저서 · 2019</span>
-        <h3>당신의 꿈은 안녕하신가요?</h3>
-        <p>제 두 번째 출간작이자 첫 개인 저서입니다. 독자가 스스로 자신의 꿈을 탐구하도록 돕는 것이 이 책의 목적이며, 옴니버스 형식으로 무엇을 진심으로 사랑하는지 발견하는 법, 힘든 감정을 다루는 법, 기쁘게 사는 법, 그리고 삶과 교육에 대해 제가 배운 것들을 담았습니다.</p>
-        <p>어떤 독자분들은 제 이야기에 깊이 공감되어 눈물이 났다고 말씀해 주셨습니다. 또 다른 분들은 제 용기에 영감을 받아 자신의 꿈을 더 솔직하게 들여다보게 됐다고 하셨습니다. 이런 반응을 들을 때마다 진심으로 행복했습니다.</p>
-        <div class="book-photo"><img src="assets/bestseller.jpg" alt="서점에 진열된 베스트셀러 당신의 꿈은 안녕하신가요"></div>
-        <div class="metric">출간 즉시 베스트셀러, 네이버 포스트 조회수 21만 기록</div>
+        <div class="card-body">
+          <span class="card-tag">📘 개인 저서 · 2019</span>
+          <h3>당신의 꿈은 안녕하신가요?</h3>
+          <p>제 두 번째 출간작이자 첫 개인 저서입니다. 독자가 스스로 자신의 꿈을 탐구하도록 돕는 것이 이 책의 목적이며, 옴니버스 형식으로 무엇을 진심으로 사랑하는지 발견하는 법, 힘든 감정을 다루는 법, 기쁘게 사는 법, 그리고 삶과 교육에 대해 제가 배운 것들을 담았습니다.</p>
+          <p>어떤 독자분들은 제 이야기에 깊이 공감되어 눈물이 났다고 말씀해 주셨습니다. 또 다른 분들은 제 용기에 영감을 받아 자신의 꿈을 더 솔직하게 들여다보게 됐다고 하셨습니다. 이런 반응을 들을 때마다 진심으로 행복했습니다.</p>
+          <div class="book-photo"><img src="assets/bestseller.jpg" alt="서점에 진열된 베스트셀러 당신의 꿈은 안녕하신가요"></div>
+          <div class="metric">출간 즉시 베스트셀러, 네이버 포스트 조회수 21만 기록</div>
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-cover"><img src="assets/book-3.jpg" alt="《위태한 유산》 책 표지"></div>
-        <span class="card-tag">📗 가족 프로젝트 · 2020</span>
-        <h3>위태한 유산</h3>
-        <p>제목이 모든 걸 말해줍니다. 대부분의 사람들은 '유산'이라 하면 돈이나 재산을 떠올립니다. 하지만 아버지와 저는 다르게 생각했습니다. 우리가 남길 수 있는 가장 의미 있는 유산은 함께 보낸 시간과 함께 만든 기억이라고 믿었습니다. 그래서 저희 8인 가족은 RV 한 대로 미국을 40일간 횡단했습니다. 적지 않은 자원을 썼지만, 그건 사치가 아니라 우리의 유대감에 대한 투자였습니다.</p>
-        <p>이 책은 그 여정에 뿌리를 두고 있습니다. 진짜 행복이 무엇인지, 그리고 지혜롭고 의도적으로 사는 법이 무엇인지를 담았습니다. 코로나19 팬데믹 시기에 쓰인 이 책은 독자들에게 대리 여행의 즐거움을 선물하는 동시에, 정말 중요한 것이 무엇인지 돌아보게 했습니다.</p>
-        <p>이 책은 제게 더 특별한 의미가 있습니다. 함께 여행한 아버지와 같이 썼고, 저자로서뿐 아니라 출판인이자 기획자로서도 처음부터 끝까지 모든 과정에 깊이 관여했기 때문입니다. 생후 22개월에 저희와 함께 여행했던 사촌 아이비가 자랐을 때, 혹은 가족이 힘든 시간을 마주할 때, 이 책을 펼쳐 우리가 언제나 하나라는 걸 기억할 수 있기를 바랍니다.</p>
-        <div class="metric">"8명의 가족이 다 때려치우고 미국 횡단 여행을 떠난 이유" — 책 표지 문구</div>
+        <div class="card-body">
+          <span class="card-tag">📗 가족 프로젝트 · 2020</span>
+          <h3>위태한 유산</h3>
+          <p>제목이 모든 걸 말해줍니다. 대부분의 사람들은 '유산'이라 하면 돈이나 재산을 떠올립니다. 하지만 아버지와 저는 다르게 생각했습니다. 우리가 남길 수 있는 가장 의미 있는 유산은 함께 보낸 시간과 함께 만든 기억이라고 믿었습니다. 그래서 저희 8인 가족은 RV 한 대로 미국을 40일간 횡단했습니다. 적지 않은 자원을 썼지만, 그건 사치가 아니라 우리의 유대감에 대한 투자였습니다.</p>
+          <p>이 책은 그 여정에 뿌리를 두고 있습니다. 진짜 행복이 무엇인지, 그리고 지혜롭고 의도적으로 사는 법이 무엇인지를 담았습니다. 코로나19 팬데믹 시기에 쓰인 이 책은 독자들에게 대리 여행의 즐거움을 선물하는 동시에, 정말 중요한 것이 무엇인지 돌아보게 했습니다.</p>
+          <p>이 책은 제게 더 특별한 의미가 있습니다. 함께 여행한 아버지와 같이 썼고, 저자로서뿐 아니라 출판인이자 기획자로서도 처음부터 끝까지 모든 과정에 깊이 관여했기 때문입니다. 생후 22개월에 저희와 함께 여행했던 사촌 아이비가 자랐을 때, 혹은 가족이 힘든 시간을 마주할 때, 이 책을 펼쳐 우리가 언제나 하나라는 걸 기억할 수 있기를 바랍니다.</p>
+          <div class="metric">"8명의 가족이 다 때려치우고 미국 횡단 여행을 떠난 이유" — 책 표지 문구</div>
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-cover placeholder"><span>✍️</span></div>
-        <span class="card-tag">✍️ 집필 중 · 2026</span>
-        <h3>다음 책 (가제)</h3>
-        <p>세 번째 책을 출간한 뒤, 제 작업이 사람들을 정말 더 행복하게 만드는 데는 아직 부족하다는 걸 깨달았습니다. 독자들이 일상의 어려움 속에서 실제로 쓸 수 있는 실용적인 것을 드리고 싶었습니다. 그래서 다음 책은 공황장애를 극복하도록 돕는 데 초점을 맞추고 있습니다.</p>
-        <p>학교를 나와 작가가 되기로 결심했을 때 찾아온 압박감은 저를 거의 무너뜨릴 뻔했습니다. 그 시기 공황장애를 겪었고 한때는 모든 걸 놓아버리고 싶다는 생각까지 들었습니다. 이후 3년간, 약 없이 꾸준한 노력과 자기돌봄으로 스스로 회복했습니다. 그 과정에서, 공황장애를 제대로 이해하지 못해 불필요하게 고통받는 사람이 정말 많다는 걸 알게 됐습니다. 그래서 실질적인 도구와 명확한 안내로 채운 책을 쓰고 있습니다.</p>
-        <p>또한 24개국을 여행하며 보낸 1년에서 영감을 받은 또 다른 책도 함께 준비하고 있습니다. 더 넓은 세상과 더 깊은 삶의 방식에 관심 있는 독자들에게, 제가 만난 통찰과 배움, 깊이 인간적인 이야기들을 나누고 싶습니다.</p>
-        <div class="metric">공황장애를 이해하고 극복하도록 돕는 실전 가이드</div>
+        <div class="card-body">
+          <span class="card-tag">✍️ 집필 중 · 2026</span>
+          <h3>다음 책 (가제)</h3>
+          <p>세 번째 책을 출간한 뒤, 제 작업이 사람들을 정말 더 행복하게 만드는 데는 아직 부족하다는 걸 깨달았습니다. 독자들이 일상의 어려움 속에서 실제로 쓸 수 있는 실용적인 것을 드리고 싶었습니다. 그래서 다음 책은 공황장애를 극복하도록 돕는 데 초점을 맞추고 있습니다.</p>
+          <p>학교를 나와 작가가 되기로 결심했을 때 찾아온 압박감은 저를 거의 무너뜨릴 뻔했습니다. 그 시기 공황장애를 겪었고 한때는 모든 걸 놓아버리고 싶다는 생각까지 들었습니다. 이후 3년간, 약 없이 꾸준한 노력과 자기돌봄으로 스스로 회복했습니다. 그 과정에서, 공황장애를 제대로 이해하지 못해 불필요하게 고통받는 사람이 정말 많다는 걸 알게 됐습니다. 그래서 실질적인 도구와 명확한 안내로 채운 책을 쓰고 있습니다.</p>
+          <p>또한 24개국을 여행하며 보낸 1년에서 영감을 받은 또 다른 책도 함께 준비하고 있습니다. 더 넓은 세상과 더 깊은 삶의 방식에 관심 있는 독자들에게, 제가 만난 통찰과 배움, 깊이 인간적인 이야기들을 나누고 싶습니다.</p>
+          <div class="metric">공황장애를 이해하고 극복하도록 돕는 실전 가이드</div>
+        </div>
       </div>
     </div>
   </div>
@@ -779,38 +795,46 @@
     <div class="work-grid">
       <div class="card reveal">
         <div class="card-cover"><img src="assets/book-1.jpg" alt="No Matter What They Say, I Create My Own Life — book cover"></div>
-        <span class="card-tag">📕 Co-authored · 2019</span>
-        <h3>No Matter What They Say, I Create My Own Life</h3>
-        <p>This was the first book I wrote after deciding to leave high school, co-authored with fellow writers. It shares the lessons I learned from Danish education, explains why I chose to leave school, and describes the kind of world I hope to help build. Its central message is about embracing challenges, approaching life with seriousness, and having the courage to follow your own path.</p>
-        <div class="book-photo"><img src="assets/mentor-book.jpg" alt="Jun holding the book together with his mentor"></div>
-        <div class="metric">"I decide who I am" — from the book's cover</div>
+        <div class="card-body">
+          <span class="card-tag">📕 Co-authored · 2019</span>
+          <h3>No Matter What They Say, I Create My Own Life</h3>
+          <p>This was the first book I wrote after deciding to leave high school, co-authored with fellow writers. It shares the lessons I learned from Danish education, explains why I chose to leave school, and describes the kind of world I hope to help build. Its central message is about embracing challenges, approaching life with seriousness, and having the courage to follow your own path.</p>
+          <div class="book-photo"><img src="assets/mentor-book.jpg" alt="Jun holding the book together with his mentor"></div>
+          <div class="metric">"I decide who I am" — from the book's cover</div>
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-cover"><img src="assets/book-2.jpg" alt="How Are Your Dreams Doing? — book cover"></div>
-        <span class="card-tag">📘 Solo work · 2019</span>
-        <h3>How Are Your Dreams Doing?</h3>
-        <p>My second publication and my first book as a solo author. Its main purpose was to encourage readers to explore their own dreams. Written in an omnibus style, it reflects on how to discover what you truly love, how to manage difficult emotions, how to live joyfully, and what I've learned about life and education along the way.</p>
-        <p>Some readers told me the book moved them to tears because they could deeply relate to my story. Others said my courage inspired them to reflect more honestly on their own dreams. Hearing responses like that brought me genuine happiness.</p>
-        <div class="book-photo"><img src="assets/bestseller.jpg" alt="How Are Your Dreams Doing displayed as a bestseller in a bookstore"></div>
-        <div class="metric">Became a bestseller on release — 210K views on Naver Post</div>
+        <div class="card-body">
+          <span class="card-tag">📘 Solo work · 2019</span>
+          <h3>How Are Your Dreams Doing?</h3>
+          <p>My second publication and my first book as a solo author. Its main purpose was to encourage readers to explore their own dreams. Written in an omnibus style, it reflects on how to discover what you truly love, how to manage difficult emotions, how to live joyfully, and what I've learned about life and education along the way.</p>
+          <p>Some readers told me the book moved them to tears because they could deeply relate to my story. Others said my courage inspired them to reflect more honestly on their own dreams. Hearing responses like that brought me genuine happiness.</p>
+          <div class="book-photo"><img src="assets/bestseller.jpg" alt="How Are Your Dreams Doing displayed as a bestseller in a bookstore"></div>
+          <div class="metric">Became a bestseller on release — 210K views on Naver Post</div>
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-cover"><img src="assets/book-3.jpg" alt="The Precarious Inheritance — book cover"></div>
-        <span class="card-tag">📗 Family project · 2020</span>
-        <h3>The Precarious Inheritance</h3>
-        <p>The title speaks for itself. Most people associate inheritance with money or property, which is understandable — but my father and I saw it differently. We believed the most meaningful inheritance we could leave was the time we shared and the memories we created together. So we spent 40 days traveling across the United States in an RV with our family of eight. We invested significant resources in this trip, not as a luxury but as an investment in our bond.</p>
-        <p>This book is rooted in that journey. It reflects on the meaning of true happiness and explores how to live wisely and intentionally. Written during the COVID-19 pandemic, it also offered readers a sense of vicarious travel and encouraged reflection on what truly matters.</p>
-        <p>This book is especially meaningful to me because I wrote it with my father, who took the journey with me — I was deeply involved not only as the author but also as the publisher and creative planner. I hope that when my cousin Ivy, who traveled with us at 22 months old, grows up, or whenever our family faces hard times, we can open this book and remember that we are always one.</p>
-        <div class="metric">"Why a family of 8 dropped everything for a cross-country RV trip" — from the book's cover</div>
+        <div class="card-body">
+          <span class="card-tag">📗 Family project · 2020</span>
+          <h3>The Precarious Inheritance</h3>
+          <p>The title speaks for itself. Most people associate inheritance with money or property, which is understandable — but my father and I saw it differently. We believed the most meaningful inheritance we could leave was the time we shared and the memories we created together. So we spent 40 days traveling across the United States in an RV with our family of eight. We invested significant resources in this trip, not as a luxury but as an investment in our bond.</p>
+          <p>This book is rooted in that journey. It reflects on the meaning of true happiness and explores how to live wisely and intentionally. Written during the COVID-19 pandemic, it also offered readers a sense of vicarious travel and encouraged reflection on what truly matters.</p>
+          <p>This book is especially meaningful to me because I wrote it with my father, who took the journey with me — I was deeply involved not only as the author but also as the publisher and creative planner. I hope that when my cousin Ivy, who traveled with us at 22 months old, grows up, or whenever our family faces hard times, we can open this book and remember that we are always one.</p>
+          <div class="metric">"Why a family of 8 dropped everything for a cross-country RV trip" — from the book's cover</div>
+        </div>
       </div>
       <div class="card reveal">
         <div class="card-cover placeholder"><span>✍️</span></div>
-        <span class="card-tag">✍️ In progress · 2026</span>
-        <h3>What's Next (working title)</h3>
-        <p>After publishing my third book, I realized my work still fell short of truly helping people live happier lives. I wanted to give readers something practical they could use in daily struggles — that's why my next book focuses on helping people overcome panic disorder.</p>
-        <p>When I decided to leave high school to become an author, the pressure nearly broke me. I suffered from panic disorder, and at one point I even considered ending my life. Over the following three years, I recovered without medication, through steady effort and self-care. Along the way I learned that many people suffer needlessly from panic disorder simply because they don't understand it — so I'm writing a book packed with real tools and clear guidance to support those going through it.</p>
-        <p>I'm also working on another book inspired by a year I spent traveling through 24 countries, sharing the insights, lessons, and deeply human stories I encountered along the way — for readers curious about a bigger world and a deeper way of living.</p>
-        <div class="metric">A practical guide to understanding and overcoming panic disorder</div>
+        <div class="card-body">
+          <span class="card-tag">✍️ In progress · 2026</span>
+          <h3>What's Next (working title)</h3>
+          <p>After publishing my third book, I realized my work still fell short of truly helping people live happier lives. I wanted to give readers something practical they could use in daily struggles — that's why my next book focuses on helping people overcome panic disorder.</p>
+          <p>When I decided to leave high school to become an author, the pressure nearly broke me. I suffered from panic disorder, and at one point I even considered ending my life. Over the following three years, I recovered without medication, through steady effort and self-care. Along the way I learned that many people suffer needlessly from panic disorder simply because they don't understand it — so I'm writing a book packed with real tools and clear guidance to support those going through it.</p>
+          <p>I'm also working on another book inspired by a year I spent traveling through 24 countries, sharing the insights, lessons, and deeply human stories I encountered along the way — for readers curious about a bigger world and a deeper way of living.</p>
+          <div class="metric">A practical guide to understanding and overcoming panic disorder</div>
+        </div>
       </div>
     </div>
   </div>
