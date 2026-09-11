@@ -120,17 +120,9 @@
     0%,100%{transform:translate(0,0) scale(1);}
     50%{transform:translate(50px,-30px) scale(1.05);}
   }
-  .eyebrow{
-    position:relative;z-index:1;
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:13px;color:var(--text-dim);
-    margin-bottom:24px;
-    opacity:0;transform:translateY(14px);
-    animation:rise .7s .1s ease forwards;
-  }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
   h1.hero-title{
     position:relative;z-index:1;
+    order:-2;
     font-size:clamp(36px,6.6vw,78px);
     font-weight:800;
     letter-spacing:-.03em;
@@ -401,23 +393,23 @@
   }
   .hero-photo-cap{
     margin-top:18px;
-    font-size:14px;
+    font-size:17px;
     color:var(--text-dim);
     line-height:1.6;
   }
   .hero-photo-cap strong{
     display:block;
     color:var(--text);
-    font-size:19px;
+    font-size:23px;
     font-weight:700;
-    margin-bottom:6px;
+    margin-bottom:8px;
   }
-  .hero-vision{
-    font-size:15px;
-    font-weight:700;
-    color:var(--accent);
-    letter-spacing:-.01em;
-    margin-bottom:14px;
+  .hero-bottom{
+    order:0;
+    margin-top:44px;
+  }
+  .hero-sub.slogan{
+    font-style:italic;
   }
 
   /* ---------- book cover ---------- */
@@ -506,29 +498,27 @@
   <div class="blob b2"></div>
   <div class="wrap">
     <div class="hero-grid">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Author · Coach</div>
-        <h1 class="hero-title">
-          <span class="line"><span>사람들이</span></span>
-          <span class="line"><span>충만한 일상을</span></span>
-          <span class="line"><span>살도록 돕습니다</span></span>
-        </h1>
-        <p class="hero-sub">
-          8년째 자기계발과 마음건강에 대해 쓰고 있습니다.<br>
-          지금까지 책 3권을 펴냈고, 독자들이 그 안의 통찰을<br>
-          실제 삶에 적용하도록 돕는 코치로도 활동하고 있습니다.
-        </p>
-        <div class="hero-cta">
-          <a href="#work-ko" class="btn btn-primary">책 보러가기</a>
-          <a href="#story-ko" class="btn btn-ghost">이야기 읽기 ↓</a>
-        </div>
-      </div>
+      <h1 class="hero-title">
+        <span class="line"><span>사람들이</span></span>
+        <span class="line"><span>충만한 일상을</span></span>
+        <span class="line"><span>살도록 돕습니다</span></span>
+      </h1>
       <div class="hero-photo-col">
-        <div class="hero-vision">충만한 일상을 돕습니다</div>
         <div class="hero-photo"><img src="assets/profile.jpg" alt="작가이자 코치, 제준"></div>
         <div class="hero-photo-cap">
           <strong>작가 제준</strong>
           충만한 삶은 특별한 순간이 아니라, 하루하루의 선택에서 시작된다고 믿습니다.
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-sub slogan">
+          "8년째 자기계발과 마음건강에 대해 쓰고 있습니다.<br>
+          지금까지 책 3권을 펴냈고, 독자들이 그 안의 통찰을<br>
+          실제 삶에 적용하도록 돕는 코치로도 활동하고 있습니다."
+        </p>
+        <div class="hero-cta">
+          <a href="#work-ko" class="btn btn-primary">책 보러가기</a>
+          <a href="#story-ko" class="btn btn-ghost">이야기 읽기 ↓</a>
         </div>
       </div>
     </div>
@@ -726,29 +716,27 @@
   <div class="blob b2"></div>
   <div class="wrap">
     <div class="hero-grid">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Author · Coach</div>
-        <h1 class="hero-title">
-          <span class="line"><span>Helping people live</span></span>
-          <span class="line"><span>more intentional,</span></span>
-          <span class="line"><span>fulfilling lives</span></span>
-        </h1>
-        <p class="hero-sub">
-          I'm Jun. For the past 8 years I've been writing about<br>
-          personal growth and mental health, with 3 books published<br>
-          so far — and I coach readers on applying it all to daily life.
-        </p>
-        <div class="hero-cta">
-          <a href="#work-en" class="btn btn-primary">See my books</a>
-          <a href="#story-en" class="btn btn-ghost">Read my story ↓</a>
-        </div>
-      </div>
+      <h1 class="hero-title">
+        <span class="line"><span>Helping people live</span></span>
+        <span class="line"><span>more intentional,</span></span>
+        <span class="line"><span>fulfilling lives</span></span>
+      </h1>
       <div class="hero-photo-col">
-        <div class="hero-vision">Helping people live fulfilling lives</div>
         <div class="hero-photo"><img src="assets/profile.jpg" alt="Jun Jae, author and coach"></div>
         <div class="hero-photo-cap">
           <strong>Author Jun</strong>
           I believe a fulfilling life isn't built from special moments, but from the choices we make every day.
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-sub slogan">
+          "I'm Jun. For the past 8 years I've been writing about<br>
+          personal growth and mental health, with 3 books published<br>
+          so far — and I coach readers on applying it all to daily life."
+        </p>
+        <div class="hero-cta">
+          <a href="#work-en" class="btn btn-primary">See my books</a>
+          <a href="#story-en" class="btn btn-ghost">Read my story ↓</a>
         </div>
       </div>
     </div>
