@@ -19,13 +19,14 @@
     --accent-2:#ff6a4d;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:clip;}
   body{
     background:var(--bg);
     color:var(--text);
     font-family:'PretendardVariable','Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
     line-height:1.5;
-    overflow-x:hidden;
+    overflow-x:clip;
+    max-width:100%;
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none;}
@@ -100,6 +101,9 @@
     display:flex;flex-direction:column;justify-content:center;
     position:relative;
     padding:120px 0 80px;
+    /* 장식용 blob이 좌우로 삐져나와 가로 스크롤이 생기던 것을 막는다.
+       overflow-y는 visible로 남겨 blob의 번짐이 아래 섹션으로 자연스럽게 이어진다. */
+    overflow-x:clip;
   }
   .blob{
     position:absolute;
@@ -468,6 +472,13 @@
     .contact-box{padding:48px 24px;}
     .hero-grid{grid-template-columns:1fr;}
     .hero-photo-col{max-width:340px;margin:0 auto;}
+
+    /* 출간 도서 카드 — 모바일에서 본문(About·Story)과 같은 눈높이로 키운다 */
+    .card h3{font-size:22px;margin-bottom:14px;}
+    .card p{font-size:16.5px;line-height:1.75;margin-bottom:18px;}
+    .card-tag{font-size:13px;}
+    .card .metric{font-size:14.5px;line-height:1.6;}
+    .book-note{font-size:15px;}
   }
 </style>
 </head>
